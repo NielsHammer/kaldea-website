@@ -140,19 +140,32 @@ section,nav,footer,.tbar,.brands,.ctab{position:relative;z-index:1}
 .tltx strong{color:rgba(255,255,255,.85)}
 
 /* MACHINES */
-.machines{padding:7rem 5vw;background:linear-gradient(180deg,#f5ede0 0%,#eddcca 100%)}
-.mhdr{text-align:center;margin-bottom:3.5rem}
-.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1360px;margin:0 auto}
-.mc{background:#fff;border-radius:3px;overflow:hidden;transition:box-shadow .3s,transform .3s;position:relative;border:1px solid rgba(196,122,43,.1)}
-.mc:hover{box-shadow:0 25px 60px rgba(60,30,0,.18);transform:translateY(-6px)}
-.mtag{position:absolute;top:1rem;left:1rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;z-index:1;font-weight:600}
-.td{background:var(--dark);color:var(--goldlt)}
-.tg{background:linear-gradient(135deg,var(--gold),var(--goldlt));color:#fff}
-.mbody{padding:2rem}
-.mbody h3{font-family:var(--serif);font-size:1.55rem;font-weight:700;margin-bottom:.7rem;color:var(--dark)}
-.mbody p{font-size:.87rem;color:var(--muted);line-height:1.75}
-.mc-accent{height:4px;background:linear-gradient(90deg,var(--gold),var(--goldlt));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
+.machines{padding:7rem 5vw;background:linear-gradient(180deg,#faf7f2 0%,#f0e6d8 100%)}
+.mhdr{text-align:center;margin-bottom:2.5rem;max-width:1360px;margin-left:auto;margin-right:auto}
+.mtabs{display:flex;gap:0;border-bottom:2px solid rgba(196,122,43,.15);margin-bottom:3rem;max-width:1360px;margin-left:auto;margin-right:auto}
+.mtab{padding:.8rem 2rem;font-size:.79rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;color:var(--muted);transition:all .2s;background:none;font-family:var(--sans)}
+.mtab:hover{color:var(--dark)}
+.mtab.on{color:var(--dark);border-bottom-color:var(--gold)}
+.mcats{max-width:1360px;margin:0 auto}
+.mcat{display:none;gap:2rem}
+.mcat.on{display:grid}
+.mcat-3{grid-template-columns:repeat(3,1fr)}
+.mcat-4{grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.mc{background:#fff;border-radius:6px;overflow:hidden;transition:box-shadow .3s,transform .3s;border:1px solid rgba(196,122,43,.12)}
+.mc:hover{box-shadow:0 20px 50px rgba(60,30,0,.14);transform:translateY(-5px)}
+.mc-img{width:100%;aspect-ratio:3/4;background:#f8f3ec;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.mc-img img{width:100%;height:100%;object-fit:contain;padding:1.5rem;transition:transform .4s}
+.mc:hover .mc-img img{transform:scale(1.05)}
+.mc-accent{height:3px;background:linear-gradient(90deg,var(--gold),var(--goldlt));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
 .mc:hover .mc-accent{transform:scaleX(1)}
+.mbody{padding:1.4rem 1.6rem 1.8rem}
+.mbody h3{font-family:var(--serif);font-size:1.35rem;font-weight:700;margin-bottom:.3rem;color:var(--dark)}
+.msub{font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem;display:block}
+.mbody p{font-size:.84rem;color:var(--muted);line-height:1.7}
+.mc-thumbs{display:flex;gap:.5rem;margin-top:.9rem}
+.mc-thumb{width:38px;height:38px;border-radius:4px;border:2px solid rgba(196,122,43,.2);overflow:hidden;cursor:pointer;padding:3px;background:#f8f3ec;transition:border-color .2s}
+.mc-thumb.on,.mc-thumb:hover{border-color:var(--gold)}
+.mc-thumb img{width:100%;height:100%;object-fit:contain}
 
 /* BRANDS */
 .brands{padding:2.8rem 5vw;background:rgba(0,0,0,.3);backdrop-filter:blur(10px);border-top:1px solid rgba(196,122,43,.1);border-bottom:1px solid rgba(196,122,43,.1)}
@@ -277,7 +290,7 @@ footer{background:#070300;padding:5rem 5vw 2.5rem;border-top:1px solid rgba(196,
   .hbtns{flex-direction:column}
   .btn-g,.btn-o{text-align:center}
   .tbar{gap:1rem;justify-content:flex-start}
-  .cgrid,.mgrid,.svgrid{grid-template-columns:1fr}
+  .cgrid,.mcat-3,.mcat-4,.svgrid{grid-template-columns:1fr}
   .wgrid,.tinner,.agrid,.contgrid{grid-template-columns:1fr;gap:2.5rem}
   .frow{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr;gap:2rem}
@@ -402,34 +415,122 @@ footer{background:#070300;padding:5rem 5vw 2.5rem;border-top:1px solid rgba(196,
 <section class="machines" id="maskiner">
   <div class="mhdr rv">
     <span class="slbl">Vores maskiner</span>
-    <h2 class="sh dk">Maskiner til enhver virksomhed</h2>
-    <p style="font-size:.93rem;color:var(--muted);margin-top:.8rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75">Vi arbejder med maskiner fra Rhea, Wittenborg og Bravilor. Kontakt os for at finde den der passer til jer.</p>
+    <h2 class="sh dk">Find den rigtige maskine</h2>
+    <p style="font-size:.93rem;color:var(--muted);margin-top:.8rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75">Vi leverer og servicerer maskiner fra Rhea, Wittenborg og Animo. Kontakt os for personlig r&aelig;dgivning.</p>
   </div>
-  <div class="mgrid">
-    <div class="mc rv">
-      <span class="mtag td">rhTT1 Instant</span>
-      <div class="mc-accent"></div>
-      <div class="mbody" style="padding-top:3rem">
-        <h3>rhTT1 Instant</h3>
-        <p>Hurtig, nem og altid klar. Vores instant-løsning leverer en god kop kaffe på sekunder, perfekt til travle arbejdsdage hvor der ikke er tid til at vente.</p>
+  <div class="mtabs rv">
+    <button class="mtab on" onclick="setMachineTab('kaffe',this)">Kaffemaskiner</button>
+    <button class="mtab" onclick="setMachineTab('vand',this)">Vandautomater</button>
+    <button class="mtab" onclick="setMachineTab('vending',this)">Vending</button>
+  </div>
+  <div class="mcats">
+
+    <!-- KAFFEMASKINER -->
+    <div class="mcat mcat-3 on" id="mcat-kaffe">
+      <div class="mc rv">
+        <div class="mc-img"><img src="rhearhTT1vheleboenner.png" alt="Rhea rhTT1.v+"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Hele b&oslash;nner</span>
+          <h3>Rhea rhTT1.v+</h3>
+          <p>Friskmalede b&oslash;nner i hver eneste kop. Kompakt design med professionel kaffekvalitet til det moderne kontor.</p>
+        </div>
+      </div>
+      <div class="mc rv" style="transition-delay:.1s">
+        <div class="mc-img"><img src="wittenborgW100maletkaffe.png" alt="Wittenborg W100 R&amp;G"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Malet kaffe</span>
+          <h3>Wittenborg W100 R&amp;G</h3>
+          <p>Klassisk og p&aring;lidelig. Brygger filterkaffe med ensartet kvalitet, perfekt til h&oslash;j volumen og mange brugere.</p>
+        </div>
+      </div>
+      <div class="mc rv" style="transition-delay:.2s">
+        <div class="mc-img"><img src="rhearhTT1iinstant.png" alt="Rhea rhTT1.i"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Instant</span>
+          <h3>Rhea rhTT1.i</h3>
+          <p>Hurtig, nem og altid klar. En god kop kaffe p&aring; sekunder, ideel til travle arbejdspladser med h&oslash;jt tempo.</p>
+        </div>
       </div>
     </div>
-    <div class="mc rv" style="transition-delay:.12s">
-      <span class="mtag tg">Mest populær</span>
-      <div class="mc-accent"></div>
-      <div class="mbody" style="padding-top:3rem">
-        <h3>rhTT1.e.vho</h3>
-        <p>Friskmalede bønner i hver eneste kop. Hastighed kombineret med ægte kaffekvalitet, for dem der ikke vil gå på kompromis med smagen.</p>
+
+    <!-- VANDAUTOMATER -->
+    <div class="mcat mcat-4" id="mcat-vand">
+      <div class="mc rv">
+        <div class="mc-img"><img src="rhearH2O20.png" alt="Rhea rH2O.20"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Kompakt</span>
+          <h3>Rhea rH2O.20</h3>
+          <p>Lille og effektiv. Leverer koldt og varmt filtreret vand direkte fra hanen.</p>
+        </div>
+      </div>
+      <div class="mc rv" style="transition-delay:.1s">
+        <div class="mc-img"><img src="rhearH2O60.png" alt="Rhea rH2O.60"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Standard</span>
+          <h3>Rhea rH2O.60</h3>
+          <p>Optimal kapacitet til mellemstore og st&oslash;rre kontorer. Stille og driftssikker.</p>
+        </div>
+      </div>
+      <div class="mc rv" style="transition-delay:.2s">
+        <div class="mc-img"><img src="rheacoolaquaplus.png" alt="Rhea Cool Aqua Plus"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Premium</span>
+          <h3>Rhea Cool Aqua Plus</h3>
+          <p>Avanceret vandautomat med filtrering og touch-interface til kontoret der prioriterer kvalitet.</p>
+        </div>
+      </div>
+      <div class="mc rv" style="transition-delay:.3s">
+        <div class="mc-img"><img id="coolmix-main" src="rheacoolmixkaffelook.png" alt="Rhea Cool Mix"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Multi</span>
+          <h3>Rhea Cool Mix</h3>
+          <p>To designs, &eacute;n maskine. Kombinerer varmt og koldt vand med stil.</p>
+          <div class="mc-thumbs">
+            <div class="mc-thumb on" onclick="switchMcImg(this,'rheacoolmixkaffelook.png','coolmix-main')"><img src="rheacoolmixkaffelook.png" alt="Kaffe look"></div>
+            <div class="mc-thumb" onclick="switchMcImg(this,'rheacoolmixsmoothielook.png','coolmix-main')"><img src="rheacoolmixsmoothielook.png" alt="Smoothie look"></div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="mc rv" style="transition-delay:.24s">
-      <span class="mtag td">Premium</span>
-      <div class="mc-accent"></div>
-      <div class="mbody" style="padding-top:3rem">
-        <h3>Rhea Pro</h3>
-        <p>Til de større kontorer med høje krav. Stort udvalg af drikke, touchskærm og mulighed for fast vandtilslutning. Professionel kaffeoplevelse hver dag.</p>
+
+    <!-- VENDING -->
+    <div class="mcat mcat-3" id="mcat-vending">
+      <div class="mc rv">
+        <div class="mc-img"><img src="rhealucezerosidesnack.png" alt="Rhea Luce Zero Side Snack"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Snack</span>
+          <h3>Rhea Luce Zero Side Snack</h3>
+          <p>Kompakt snackuddeling til kantinen eller gangen. Enkel betjening og bredt udvalg.</p>
+        </div>
+      </div>
+      <div class="mc rv" style="transition-delay:.1s">
+        <div class="mc-img"><img src="rhealucexl6multishop.png" alt="Rhea Luce XL6 Multishop"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Multi</span>
+          <h3>Rhea Luce XL6 Multishop</h3>
+          <p>Stor kapacitet og fleksibelt udvalg. Ideel til st&oslash;rre kontorer og kantiner med h&oslash;j trafik.</p>
+        </div>
+      </div>
+      <div class="mc rv" style="transition-delay:.2s">
+        <div class="mc-img"><img src="rheasaphirhshoppro.png" alt="Rhea Saphirh Shop Pro"></div>
+        <div class="mc-accent"></div>
+        <div class="mbody">
+          <span class="msub">Premium</span>
+          <h3>Rhea Saphirh Shop Pro</h3>
+          <p>Professionel vending med touch-sk&aelig;rm og cashless betaling til virksomheder der vil give det fulde.</p>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -488,13 +589,8 @@ footer{background:#070300;padding:5rem 5vw 2.5rem;border-top:1px solid rgba(196,
 <section class="about" id="om-os">
   <div class="agrid">
     <div class="avis rv">
-      <div class="aimg">
-        <div class="aimg-inner">
-          <span>☕</span>
-          <p>Kaldea Kaffe</p>
-        </div>
-      </div>
-      <div class="aacc"></div>
+      <div class="aimg"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" alt="Kaffe paa kontoret" style="width:100%;height:100%;object-fit:cover;"></div>
+    <div class="aacc"></div>
     </div>
     <div class="rv" style="transition-delay:.15s">
       <span class="slbl">Om os</span>
@@ -630,6 +726,19 @@ window.addEventListener('load',function(){
   })(performance.now());
 });
 
+
+// MACHINE TABS
+function setMachineTab(cat,el){
+  document.querySelectorAll('.mcat').forEach(function(c){c.classList.remove('on')});
+  document.querySelectorAll('.mtab').forEach(function(t){t.classList.remove('on')});
+  document.getElementById('mcat-'+cat).classList.add('on');
+  el.classList.add('on');
+}
+function switchMcImg(el,src,imgId){
+  document.getElementById(imgId).src=src;
+  el.closest('.mc-thumbs').querySelectorAll('.mc-thumb').forEach(function(t){t.classList.remove('on')});
+  el.classList.add('on');
+}
 
 // REVEAL
 function doReveal(){document.querySelectorAll('.rv').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight-40)el.classList.add('on');});}
