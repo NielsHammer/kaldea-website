@@ -142,7 +142,7 @@ section,nav,footer,.tbar,.brands,.ctab{position:relative;z-index:1}
 /* MACHINES */
 .machines{padding:7rem 5vw;background:linear-gradient(180deg,#faf7f2 0%,#f0e6d8 100%)}
 .mhdr{text-align:center;margin-bottom:2.5rem;max-width:1360px;margin-left:auto;margin-right:auto}
-.mtabs{display:flex;gap:0;border-bottom:2px solid rgba(196,122,43,.15);margin-bottom:3rem;max-width:1360px;margin-left:auto;margin-right:auto}
+.mtabs{display:flex;gap:0;justify-content:center;border-bottom:2px solid rgba(196,122,43,.15);margin-bottom:3rem;max-width:1360px;margin-left:auto;margin-right:auto}
 .mtab{padding:.8rem 2rem;font-size:.79rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;color:var(--muted);transition:all .2s;background:none;font-family:var(--sans)}
 .mtab:hover{color:var(--dark)}
 .mtab.on{color:var(--dark);border-bottom-color:var(--gold)}
@@ -151,15 +151,16 @@ section,nav,footer,.tbar,.brands,.ctab{position:relative;z-index:1}
 .mcat.on{display:grid}
 .mcat-3{grid-template-columns:repeat(3,1fr)}
 .mcat-4{grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.mc{background:#fff;border-radius:6px;overflow:hidden;transition:box-shadow .3s,transform .3s;border:1px solid rgba(196,122,43,.12)}
-.mc:hover{box-shadow:0 20px 50px rgba(60,30,0,.14);transform:translateY(-5px)}
-.mc-img{width:100%;aspect-ratio:3/4;background:#f8f3ec;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.mc{background:#fff;border-radius:6px;overflow:hidden;transition:box-shadow .3s,transform .3s;border:1px solid #c47a2b;display:flex;flex-direction:column}
+.mc:hover{box-shadow:0 20px 50px rgba(60,30,0,.22),0 0 0 1px rgba(196,122,43,.4),0 0 28px rgba(196,122,43,.14);transform:translateY(-5px)}
+.mc-img{width:100%;height:320px;background:linear-gradient(145deg,#1a0d00 0%,#2d1600 40%,#1a0d00 100%);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.mc-img::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(196,122,43,.12) 0%,transparent 65%);pointer-events:none}
 .mc-img img{width:100%;height:100%;object-fit:contain;padding:1.5rem;transition:transform .4s}
 .mc:hover .mc-img img{transform:scale(1.05)}
 .mc-accent{height:3px;background:linear-gradient(90deg,var(--gold),var(--goldlt));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
 .mc:hover .mc-accent{transform:scaleX(1)}
-.mbody{padding:1.4rem 1.6rem 1.8rem}
-.mbody h3{font-family:var(--serif);font-size:1.35rem;font-weight:700;margin-bottom:.3rem;color:var(--dark)}
+.mbody{padding:1.4rem 1.6rem 1.8rem;flex:1;display:flex;flex-direction:column}
+.mbody h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin-bottom:.3rem;color:var(--dark);letter-spacing:-.01em}
 .msub{font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem;display:block}
 .mbody p{font-size:.84rem;color:var(--muted);line-height:1.7}
 .mc-thumbs{display:flex;gap:.5rem;margin-top:.9rem}
@@ -421,7 +422,7 @@ footer{background:#070300;padding:5rem 5vw 2.5rem;border-top:1px solid rgba(196,
   <div class="mtabs rv">
     <button class="mtab on" onclick="setMachineTab('kaffe',this)">Kaffemaskiner</button>
     <button class="mtab" onclick="setMachineTab('vand',this)">Vandautomater</button>
-    <button class="mtab" onclick="setMachineTab('vending',this)">Vending</button>
+    <button class="mtab" onclick="setMachineTab('vending',this)">Vending Machines</button>
   </div>
   <div class="mcats">
 
