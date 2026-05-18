@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt Kaldea Kaffe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#f0e8d8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;font-family:"DM Sans",sans-serif}
+  .card{background:#f5efe4;border:1px solid #e0d0b8;border-radius:8px;max-width:560px;width:100%;padding:48px 44px;box-shadow:0 4px 24px rgba(44,26,8,.08)}
+  .logo-area{text-align:center;margin-bottom:28px}
+  .logo-area .brand{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:700;color:#1e1008;letter-spacing:.04em}
+  .logo-area .sub{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a06820;margin-top:5px}
+  .divider{width:40px;height:2px;background:#a06820;margin:16px auto 24px}
+  h2{font-family:"Cormorant Garamond",serif;font-size:24px;color:#1e1008;text-align:center;margin-bottom:8px;font-weight:700}
+  .intro{font-size:13px;color:#9a7a50;text-align:center;line-height:1.65;margin-bottom:28px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .form-row.full{grid-template-columns:1fr}
+  .form-field{display:flex;flex-direction:column;gap:5px}
+  .form-field label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a06820;font-weight:500}
+  .form-field input,.form-field textarea{border:1px solid #d8c9a8;background:#ede4d4;border-radius:4px;padding:11px 13px;font-size:13px;color:#2c1a08;font-family:"DM Sans",sans-serif;outline:none;width:100%;transition:border-color .2s}
+  .form-field input:focus,.form-field textarea:focus{border-color:#a06820;background:#f5efe4}
+  .form-field textarea{resize:vertical;min-height:110px;line-height:1.55}
+  .submit-btn{width:100%;background:#a06820;color:#f5efe4;border:none;border-radius:4px;padding:14px;font-size:14px;font-weight:500;letter-spacing:.06em;font-family:"DM Sans",sans-serif;cursor:pointer;margin-top:6px;transition:background .2s,transform .15s}
+  .submit-btn:hover{background:#8a5a18;transform:translateY(-1px)}
+  .success{display:none;text-align:center;padding:32px 0}
+  .success .icon{font-size:44px;margin-bottom:16px}
+  .success h3{font-family:"Cormorant Garamond",serif;font-size:24px;color:#1e1008;margin-bottom:8px;font-weight:700}
+  .success p{font-size:13px;color:#9a7a50;line-height:1.65}
+  .footer-note{text-align:center;font-size:11px;color:#c0a880;margin-top:20px}
+  .back-link{display:block;text-align:center;font-size:12px;color:#a06820;text-decoration:none;margin-top:16px;letter-spacing:.04em}
+  .back-link:hover{text-decoration:underline}
+  @media(max-width:480px){
+    .card{padding:36px 24px}
+    .form-row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo-area">
+    <div class="brand">Kaldea Kaffe</div>
+    <div class="sub">Lokalt kaffefirma fra Sønderjylland</div>
+  </div>
+  <div class="divider"></div>
+  <h2>Send os en besked</h2>
+  <p class="intro">Udfyld formularen herunder — vi vender tilbage hurtigst muligt.</p>
+
+  <form id="kontaktform" action="https://formspree.io/f/xvgzqpwj" method="POST">
+    <input type="hidden" name="_subject" value="Ny kontakthenvendelse fra kaldea.dk">
+    <div class="form-row">
+      <div class="form-field">
+        <label>Navn</label>
+        <input type="text" name="navn" placeholder="Dit navn" required>
+      </div>
+      <div class="form-field">
+        <label>Virksomhed</label>
+        <input type="text" name="firma" placeholder="Firmanavn" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label>Telefon</label>
+        <input type="tel" name="telefon" placeholder="+45 XX XX XX XX" required>
+      </div>
+      <div class="form-field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="din@email.dk" required>
+      </div>
+    </div>
+    <div class="form-row full">
+      <div class="form-field">
+        <label>Besked</label>
+        <textarea name="besked" placeholder="Beskriv gerne jeres situation eller hvad I har brug for..."></textarea>
+      </div>
+    </div>
+    <button type="submit" class="submit-btn">Send besked</button>
+  </form>
+
+  <div class="success" id="successMsg">
+    <div class="icon">☕</div>
+    <h3>Tak for din henvendelse!</h3>
+    <p>Vi har modtaget jeres besked og kontakter jer inden for én arbejdsdag.</p>
+  </div>
+
+  <div class="footer-note">Kaldea Kaffe &middot; info@kaldea.dk &middot; <a href="tel:+4571997071" style="color:#c0a880;text-decoration:none">+45 71 99 70 71</a></div>
+  <a href="index hjemmeside.html" class="back-link">Tilbage til kaldea.dk</a>
+</div>
+
+<script>
+  var form = document.getElementById("kontaktform");
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    }).then(function(r) {
+      if (r.ok) {
+        form.style.display = "none";
+        document.getElementById("successMsg").style.display = "block";
+      }
+    });
+  });
+</script>
+</body>
+</html>
