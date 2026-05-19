@@ -678,7 +678,7 @@ footer{background:#070300;padding:5rem 5vw 2.5rem;border-top:1px solid rgba(196,
         <div class="frow"><input class="fi" type="text" name="navn" placeholder="Navn *" required><input class="fi" type="text" name="firma" placeholder="Firma *" required></div>
         <div class="frow"><input class="fi" type="email" name="email" placeholder="Email *" required><input class="fi" type="tel" name="telefon" placeholder="Telefon"></div>
         <div class="frow"><input class="fi" type="number" name="medarbejdere" placeholder="Antal medarbejdere" min="1">
-          <select class="fsel" name="maskintype"><option value="" disabled selected>Maskintype</option><option>Instant</option><option>Friskbrygget</option><option>Premium</option><option>Rådgiv mig</option></select>
+          <select class="fsel" name="kaffeloesning" required><option value="" disabled selected>Hvilken kaffeløsning?</option><option value="hele-boenner">Hele bønner</option><option value="malet-kaffe">Malet kaffe</option><option value="instant">Instant</option><option value="ved-ikke">Ved ikke endnu</option></select>
         </div>
         <textarea class="fta" name="besked" placeholder="Besked eller spørgsmål..."></textarea>
         <button type="submit" class="cfsub">Send forespørgsel</button>
